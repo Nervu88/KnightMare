@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,13 +10,28 @@ public class PlayerMovement : MonoBehaviour
     private float velocityValue;
     public Animator thisAnim;
     public Rigidbody2D rb;
+    public int count;
+    public Text countText;
+    public Text winText;
+    public AudioClip victorySound;
+    public AudioClip collect;
+    AudioSource source;
+   
+    
 
     Vector2 movement;
     Vector2 velocity;
 
+    
+
     void Start()
     {
+        source = GetComponent<AudioSource>();
         thisAnim = GetComponentInChildren<Animator>();
+        count = 0;
+        winText.text = "";
+
+        SetCountText();
     }
 
     void Update()
@@ -49,4 +65,43 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
+
+    void SetCountText()
+    {
+
+        countText.text = count.ToString();
+        
+        if (count >= 5)
+        {
+            
+            source.volume = 0.1f;
+            source.PlayOneShot(victorySound);
+            winText.text = "You collected all the Beer and Coins! CONGRATS \n The game will close in 10 secs...";   
+            StartCoroutine("AppClose");
+        }
+    }
+    private IEnumerator AppClose()
+    {
+            yield return new WaitForSeconds(10f);
+            Debug.Log("Toimii");
+            Application.Quit();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+
+        if (other.gameObject.CompareTag("PickUp"))
+        {
+            source.volume = 0.4f; 
+            source.PlayOneShot(collect);
+            count++;
+            Debug.Log("Item picked up");
+            SetCountText();        
+            Destroy(other.gameObject);
+        }
+        else
+
+            Debug.Log("Not working");
+    }
+
 }

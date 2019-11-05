@@ -6,26 +6,26 @@ public class ItemSpawner : MonoBehaviour
 {
 
 
- //  private void OnDrawGizmos2D()
- //  {
- //      if  (collectableSpawnPoints.Length == 0)
- //          return;
- //
- //      foreach (Transform Loc in collectableSpawnPoints)
- //      {
- //          if (Loc == null)
- //          {
- //              Gizmos.color = Color.red;
- //              Gizmos.DrawSphere(Loc.position, 1f);
- //          }
- //      }
- //  }
+   private void OnDrawGizmos2D()
+   {
+       if  (collectableSpawnPoints.Length == 0)
+           return;
+ 
+       foreach (Transform Loc in collectableSpawnPoints)
+       {
+           if (Loc != null)
+           {
+               Gizmos.color = Color.red;
+               Gizmos.DrawSphere(Loc.position, 1f);
+           }
+       }
+   }
 
     public static GameObject[] gameItems;
     public int numToSpawn;
     public static int numSpawned = 0;
-    public Transform SpawnPosition;
     public Transform[] collectableSpawnPoints = new Transform[5];
+    private int index;
 
     void Start()
     {
@@ -37,13 +37,16 @@ public class ItemSpawner : MonoBehaviour
 
         // Get SpawnPoint
         Transform spawnPoint = GetCollectableSpawnPoint();
-        int whichItem = Random.Range(0, 100);
+        int whichItem = Random.Range(0, numToSpawn);
 
         GameObject sItem = Instantiate(gameItems[whichItem]) as GameObject;
 
         numSpawned++;
 
         sItem.transform.position = spawnPoint.position;
+        Destroy(spawnPoint.gameObject);
+        index++;
+        
     }
 
     void Update()
@@ -59,8 +62,6 @@ public class ItemSpawner : MonoBehaviour
     public Transform GetCollectableSpawnPoint()
     {
         //randomly selects a point out of the array
-
-        int index = Random.Range(0, collectableSpawnPoints.Length);
 
         //returns the selected point
         return collectableSpawnPoints[index];
