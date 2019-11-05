@@ -35,7 +35,7 @@ public class ItemSpawner : MonoBehaviour
     void SpawnRandomObject()
     {
 
-        // Get SpawnPoint
+        // Valitsee SpawniPointin
         Transform spawnPoint = GetCollectableSpawnPoint();
         int whichItem = Random.Range(0, numToSpawn);
 

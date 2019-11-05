@@ -16,9 +16,6 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip victorySound;
     public AudioClip collect;
     AudioSource source;
-   
-    
-
     Vector2 movement;
     Vector2 velocity;
 
@@ -65,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
-
+    // Collectibles count laskin
     void SetCountText()
     {
 
@@ -80,13 +77,14 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine("AppClose");
         }
     }
+    //--------------- Pelin automaattinen Quit ----------------------
     private IEnumerator AppClose()
     {
             yield return new WaitForSeconds(10f);
             Debug.Log("Toimii");
             Application.Quit();
     }
-
+    //--------------- Collisionin koodi ----------------------
     private void OnTriggerEnter2D(Collider2D other)
     {
 
