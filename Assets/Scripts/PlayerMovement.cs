@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    SceneManager Scene;
     public float moveSpeed = 5f;
     private float velocityValue;
     public Animator thisAnim;
@@ -13,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public int count;
     public Text countText;
     public Text winText;
+    public int scoreToWin;
     public AudioClip victorySound;
     public AudioClip collect;
     AudioSource source;
@@ -68,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
 
         countText.text = count.ToString();
         
-        if (count >= 5)
+        if (count >= scoreToWin)
         {
             
             source.volume = 0.1f;
@@ -82,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
     {
             yield return new WaitForSeconds(10f);
             Debug.Log("Toimii");
-            Application.Quit();
+            Scene.ExitThis();
     }
     //--------------- Collisionin koodi ----------------------
     private void OnTriggerEnter2D(Collider2D other)
