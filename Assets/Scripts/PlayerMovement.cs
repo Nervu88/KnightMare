@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
             
             source.volume = 0.1f;
             source.PlayOneShot(victorySound);
-            winText.text = "You collected all the Beer and Coins! CONGRATS \n The game will close in 10 secs...";   
+            winText.text = "You found all the collectibles. Congratulations! \n The game will close in 10 secs...";   
             StartCoroutine("AppClose");
         }
     }
@@ -99,9 +99,6 @@ public class PlayerMovement : MonoBehaviour
             SetCountText();        
             Destroy(other.gameObject);
         }
-        else
-
-            Debug.Log("Not working");
     }
-
 }
+

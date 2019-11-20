@@ -6,36 +6,37 @@ public class LevelManager : MonoBehaviour
 {
 
     public GameObject escapeMenues;
-    private int escCount = 0;
 
-    void Start()
-    {
-        escapeMenues.SetActive(false);
-    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && escCount == 0)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            setPause();
-            escapeMenues.SetActive(true);
-            escCount = 1;
-        }
-        if (Input.GetKeyDown(KeyCode.Escape) && escCount == 1)
-        {
-            setContinue();
-            escapeMenues.SetActive(false);
-            escCount = 0;
+            toggleMenu();
         }
     }
 
     public void setPause()
     {
-            Time.timeScale = 0;
+        Time.timeScale = 0;
     }
     public void setContinue()
-    {  
-            Time.timeScale = 1;  
+    {
+        Time.timeScale = 1;
     }
 
+    public void toggleMenu()
+    {
+        if (escapeMenues.activeInHierarchy)
+        {
+            escapeMenues.SetActive(false);
+           setContinue();
+
+        } else
+        {
+            escapeMenues.SetActive(true);
+           setPause();
+        }
+    }
 }
+
