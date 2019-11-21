@@ -19,6 +19,7 @@ public class RiddleScript : MonoBehaviour
     public Text riddleBoxText;
     public GameObject riddleBox;
     public GameObject inputBox;
+  //  public Text inputText;
     public int playerAnswer;
 
     public void OnTriggerEnter2D(Collider2D collision) // TÄSSÄ ON JOTAIN VIKAA VIELÄ PITÄÄ KORJATA!!! HUOMHUOM!!
@@ -28,7 +29,7 @@ public class RiddleScript : MonoBehaviour
             inputBox.SetActive(true);
             mgr.setPause();
 
-            if (Input.GetKey(KeyCode.Return) && (int.Parse(answer.mainInputField.text) > 1))
+            while (Input.GetKey(KeyCode.Return) && (int.Parse(answer.mainInputField.text) >= 1))
            {
                 playerAnswer = answer.ReturnAnswer();
                 Debug.Log(playerAnswer + riddleAnswer);
@@ -42,6 +43,7 @@ public class RiddleScript : MonoBehaviour
                    inputBox.SetActive(false);
                    mgr.setContinue();
                 }
+                continue;
            }
 
         } /// KORJAUKSEN LOPPU
