@@ -13,7 +13,6 @@ public class RiddleScript : MonoBehaviour
     }
 
     LevelManager mgr = new LevelManager();
-    InputFieldScript answer = new InputFieldScript();
     Animator otherAnimator;
     public int riddleAnswer;
     public Text riddleBoxText;
@@ -24,30 +23,9 @@ public class RiddleScript : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision) // TÄSSÄ ON JOTAIN VIKAA VIELÄ PITÄÄ KORJATA!!! HUOMHUOM!!
     {
-        if (collision.gameObject.tag == "DoorClosed")
-        {
-            inputBox.SetActive(true);
-            mgr.setPause();
 
-            while (Input.GetKey(KeyCode.Return) && (int.Parse(answer.mainInputField.text) >= 1))
-           {
-                playerAnswer = answer.ReturnAnswer();
-                Debug.Log(playerAnswer + riddleAnswer);
-
-                if (riddleAnswer == playerAnswer)
-               {
-                   otherAnimator = collision.GetComponent<Animator>();
-                   collision.gameObject.tag = "DoorOpen";
-                   otherAnimator.SetTrigger("OpenDoor");
-                   Debug.Log("Vastasit Oikein");
-                   inputBox.SetActive(false);
-                   mgr.setContinue();
-                }
-                continue;
-           }
-
-        } /// KORJAUKSEN LOPPU
-        else if (collision.gameObject.tag == "Riddle")
+         /// KORJAUKSEN LOPPU
+        if (collision.gameObject.tag == "Riddle")
         {
 
             riddleBox.SetActive(true);
