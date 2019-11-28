@@ -11,29 +11,41 @@ public class RiddleScript : MonoBehaviour
     {
         
     }
-
+    RandomRiddle rldDoor = new RandomRiddle();
     LevelManager mgr = new LevelManager();
     Animator otherAnimator;
     public int riddleAnswer;
     public Text riddleBoxText;
     public GameObject riddleBox;
     public GameObject inputBox;
-  //  public Text inputText;
+    public InputField inputField;
+    public Text txtCorrect;
     public int playerAnswer;
+    GameObject Door;
+    GameObject theRiddleObj;
 
-    public void OnTriggerEnter2D(Collider2D collision) // TÄSSÄ ON JOTAIN VIKAA VIELÄ PITÄÄ KORJATA!!! HUOMHUOM!!
+    public void OnTriggerEnter2D(Collider2D collision) 
     {
+        if (collision.gameObject.tag == "DoorClosed")
+        {
+            inputBox.SetActive(true);
+            mgr.setPause();
+            Door = collision.gameObject;
+            otherAnimator = collision.gameObject.GetComponent<Animator>();
+        }
 
-         /// KORJAUKSEN LOPPU
-        if (collision.gameObject.tag == "Riddle")
+        else if (collision.gameObject.tag == "Riddle")
         {
 
             riddleBox.SetActive(true);
             riddleBoxText.text = "";
 
             RandomRiddle theRiddle = collision.gameObject.GetComponent<RandomRiddle>();
+            theRiddleObj = collision.gameObject;
             riddleBoxText.text = "Riddle is: What is the sum of " + theRiddle.firstNumber + " and " + theRiddle.secondNumber + " ( " + theRiddle.firstNumber + "+" + theRiddle.secondNumber + " =  ?) ";
             Debug.Log("Riddlen vastaus on " + theRiddle.riddleAnswer);
+            riddleAnswer = theRiddle.riddleAnswer;
+            
         }
         else
         {
@@ -43,13 +55,41 @@ public class RiddleScript : MonoBehaviour
     public void OnTriggerExit2D(Collider2D collision)
     {
 
+        if (collision.gameObject.tag == "DoorClosed")
+        {
+            txtCorrect.text = "";
+        }
         if (collision.gameObject.tag == "Riddle")
         {
             riddleBox.SetActive(false);
             riddleBoxText.text = "";
+            txtCorrect.text = "";
         }
         else
         {
+        }
+    }
+
+    public void ButtonPressed()
+    {
+        playerAnswer = int.Parse(inputField.text);
+        Debug.Log(playerAnswer);
+
+        if (playerAnswer == riddleAnswer)
+        {    
+            otherAnimator.SetTrigger("OpenDoor");
+            Door.gameObject.tag = "DoorOpen";
+            Destroy(theRiddleObj);
+            inputBox.SetActive(false);
+            txtCorrect.text = "CORRECT!";
+            mgr.setContinue();
+            riddleAnswer = 0;
+        }
+        else
+        {
+            txtCorrect.text = "INCORRECT! Try again!";
+            inputBox.SetActive(false);
+            mgr.setContinue();
         }
     }
 

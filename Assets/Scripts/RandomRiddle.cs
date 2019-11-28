@@ -16,12 +16,16 @@ public class RandomRiddle : MonoBehaviour
         AddRiddle();
     }
 
+    void Update()
+    {
+        
+    }
+
     public void AddRiddle()
     {
         firstNumber = Random.Range(0, 100);
         secondNumber = Random.Range(1, 100);
 
         riddleAnswer = firstNumber + secondNumber;
-        Door.GetComponent<RiddleScript>().riddleAnswer = riddleAnswer;
     }
 }
