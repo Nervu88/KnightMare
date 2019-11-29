@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - player
+  - PickUp
+  - DoorClosed
+  - DoorOpen
+  - Riddle
   layers:
   - Default
   - TransparentFX
@@ -15,7 +20,7 @@ TagManager:
   - 
   - Edges
   - Ground
-  - 
+  - Door
   - 
   - 
   - 
