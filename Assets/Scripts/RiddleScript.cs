@@ -55,7 +55,7 @@ public class RiddleScript : MonoBehaviour
     public void OnTriggerExit2D(Collider2D collision)
     {
 
-        if (collision.gameObject.tag == "DoorClosed")
+        if (collision.gameObject.tag == "DoorClosed" || collision.gameObject.tag == "DoorOpen")
         {
             txtCorrect.text = "";
         }
@@ -79,6 +79,8 @@ public class RiddleScript : MonoBehaviour
         {    
             otherAnimator.SetTrigger("OpenDoor");
             Door.gameObject.tag = "DoorOpen";
+            AudioSource audion = Door.GetComponent<AudioSource>();
+            audion.Play();
             Destroy(theRiddleObj);
             inputBox.SetActive(false);
             txtCorrect.text = "CORRECT!";

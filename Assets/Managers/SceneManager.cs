@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class SceneManager : MonoBehaviour
 {
-    private SceneManager scene;
+    public SceneManager scene;
 
     public void NewGame()
     {

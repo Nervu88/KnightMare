@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7157083827420284718}
   - component: {fileID: 4885153503219861731}
+  - component: {fileID: -2013819369575655968}
   m_Layer: 0
   m_Name: LvlManager
   m_TagString: Untagged
@@ -43,3 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c36b0fa263aeda4ebee707228bb510e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scene: {fileID: 0}
+--- !u!114 &-2013819369575655968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5073191037815398729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e78600785bb3ee448f3d7db0ab18e9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  escapeMenues: {fileID: 0}

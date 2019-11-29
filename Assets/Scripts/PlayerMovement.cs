@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    SceneManager Scene;
+    SceneManager scene = new SceneManager();
     public float moveSpeed = 5f;
     private float velocityValue;
     public Animator thisAnim;
@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     AudioSource source;
     Vector2 movement;
     Vector2 velocity;
-
+    private IEnumerator coroutine;
     
 
     void Start()
@@ -75,16 +75,17 @@ public class PlayerMovement : MonoBehaviour
             
             source.volume = 0.1f;
             source.PlayOneShot(victorySound);
-            winText.text = "You found all the collectibles. Congratulations! \n The game will close in 10 secs...";   
-            StartCoroutine("AppClose");
+            winText.text = "You found all the collectibles. Congratulations! \n The game will close in 10 secs...";
+            coroutine = AppClose(10.0f);
+            StartCoroutine(coroutine); // Tää ei toimi!
         }
     }
     //--------------- Pelin automaattinen Quit ----------------------
-    private IEnumerator AppClose()
+    private IEnumerator AppClose(float time) // Ei toimi kutsu
     {
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(time);
             Debug.Log("Toimii");
-            Scene.ExitThis();
+            scene.MainMenu();
     }
     //--------------- Collisionin koodi ----------------------
     private void OnTriggerEnter2D(Collider2D other)
