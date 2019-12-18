@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
+    Scene currentScene;
     SceneManager scene = new SceneManager();
     public float moveSpeed = 5f;
     private float velocityValue;
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
         source = GetComponent<AudioSource>();
         thisAnim = GetComponentInChildren<Animator>();
         count = 0;
@@ -67,26 +69,43 @@ public class PlayerMovement : MonoBehaviour
     // Collectibles count laskin
     void SetCountText()
     {
-
+        int buildIndex = currentScene.buildIndex;
         countText.text = count.ToString();
-        
+
         if (count >= scoreToWin)
         {
-            
             source.volume = 0.1f;
             source.PlayOneShot(victorySound);
-            winText.text = "You found all the collectibles. Congratulations! \n The game will close in 10 secs...";
-            coroutine = AppClose(10.0f);
-            StartCoroutine(coroutine); // Tää ei toimi!
+            switch (buildIndex)
+            {
+                case 1:
+                    winText.text = "You found all the collectibles. Congratulations! Loading next level...";
+                    coroutine = NextLeveli(10.0f);
+                    StartCoroutine(coroutine);
+                    break;
+                case 2:
+                    winText.text = "You found all the collectibles. Congratulations! \n The game will close in 10 secs...";
+                    coroutine = AppClose(10.0f);
+                    StartCoroutine(coroutine);
+                    break;
+            }
         }
     }
     //--------------- Pelin automaattinen Quit ----------------------
-    private IEnumerator AppClose(float time) // Ei toimi kutsu
+    private IEnumerator AppClose(float time) 
     {
             yield return new WaitForSeconds(time);
             Debug.Log("Toimii");
             scene.MainMenu();
     }
+    private IEnumerator NextLeveli(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Debug.Log("Toimii");
+        scene.NextLevel();
+    }
+
+
     //--------------- Collisionin koodi ----------------------
     private void OnTriggerEnter2D(Collider2D other)
     {

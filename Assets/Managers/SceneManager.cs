@@ -11,6 +11,13 @@ public class SceneManager : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
+    public  void NextLevel()
+    {
+        Scene currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+        int SceneIndex = currentScene.buildIndex;
+        int LoadNextLevel = SceneIndex + 1;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(LoadNextLevel);
+    }
 
     public void MainMenu()
     {

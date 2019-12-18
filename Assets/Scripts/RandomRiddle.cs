@@ -25,7 +25,7 @@ public class RandomRiddle : MonoBehaviour
     {
         firstNumber = Random.Range(0, 100);
         secondNumber = Random.Range(1, 100);
-
         riddleAnswer = firstNumber + secondNumber;
+        Door.GetComponent<RiddleAnswer>().riddleAnswer = riddleAnswer;
     }
 }

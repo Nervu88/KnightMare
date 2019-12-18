@@ -31,6 +31,7 @@ public class RiddleScript : MonoBehaviour
             inputBox.SetActive(true);
             mgr.setPause();
             Door = collision.gameObject;
+            riddleAnswer = Door.GetComponent<RiddleAnswer>().riddleAnswer;
             otherAnimator = collision.gameObject.GetComponent<Animator>();
         }
 
@@ -43,9 +44,7 @@ public class RiddleScript : MonoBehaviour
             RandomRiddle theRiddle = collision.gameObject.GetComponent<RandomRiddle>();
             theRiddleObj = collision.gameObject;
             riddleBoxText.text = "Riddle is: What is the sum of " + theRiddle.firstNumber + " and " + theRiddle.secondNumber + " ( " + theRiddle.firstNumber + "+" + theRiddle.secondNumber + " =  ?) ";
-            Debug.Log("Riddlen vastaus on " + theRiddle.riddleAnswer);
-            riddleAnswer = theRiddle.riddleAnswer;
-            
+            Debug.Log("Riddlen vastaus on " + theRiddle.riddleAnswer);          
         }
         else
         {
