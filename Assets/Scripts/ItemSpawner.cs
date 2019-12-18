@@ -4,29 +4,26 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-
-
-   private void OnDrawGizmos2D()
-   {
-       if  (collectableSpawnPoints.Length == 0)
-           return;
- 
-       foreach (Transform Loc in collectableSpawnPoints)
-       {
-           if (Loc != null)
-           {
-               Gizmos.color = Color.red;
-               Gizmos.DrawSphere(Loc.position, 1f);
-           }
-       }
-   }
-
     public static GameObject[] gameItems;
     public int numToSpawn;
     public static int numSpawned = 0;
     public Transform[] collectableSpawnPoints = new Transform[5];
     private int index;
 
+   // private void OnDrawGizmos2D()
+   //{
+   //    if  (collectableSpawnPoints.Length == 0)
+   //        return;
+ 
+   //    foreach (Transform Loc in collectableSpawnPoints)
+   //    {
+   //        if (Loc != null)
+   //        {
+   //            Gizmos.color = Color.red;
+   //            Gizmos.DrawSphere(Loc.position, 1f);
+   //        }
+   //    }
+   //}
     void Start()
     {
         gameItems = Resources.LoadAll<GameObject>("SpawnItems");
