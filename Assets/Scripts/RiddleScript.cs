@@ -30,8 +30,7 @@ public class RiddleScript : MonoBehaviour
         {
             inputBox.SetActive(true);
             mgr.setPause();
-            Door = collision.gameObject;
-            riddleAnswer = Door.GetComponent<RiddleAnswer>().riddleAnswer;
+            Door = collision.gameObject;       
             otherAnimator = collision.gameObject.GetComponent<Animator>();
         }
 
@@ -73,6 +72,7 @@ public class RiddleScript : MonoBehaviour
     {
         playerAnswer = int.Parse(inputField.text);
         Debug.Log(playerAnswer);
+        riddleAnswer = Door.GetComponent<RiddleAnswer>().riddleAnswer;
 
         if (playerAnswer == riddleAnswer)
         {    

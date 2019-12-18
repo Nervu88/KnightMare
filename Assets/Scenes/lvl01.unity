@@ -488,6 +488,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &92638591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92638589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b53b1c76b3cc346b92d7e7eb1acb1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  riddleAnswer: 0
 --- !u!1 &98369646 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4688413518048108703, guid: fb2361a51cc336b4dabe0388aa94bf7a,
@@ -3549,6 +3562,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &535727208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535727205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b53b1c76b3cc346b92d7e7eb1acb1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  riddleAnswer: 0
 --- !u!1 &548826559 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1647954628646920095, guid: de2d90d16846d2c4cbb0f3a9f70d4d92,
@@ -3664,6 +3690,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &548826562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548826559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b53b1c76b3cc346b92d7e7eb1acb1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  riddleAnswer: 0
 --- !u!1 &552197825 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7569394396480215597, guid: 310a6731c4335fc449fd183053908b67,
@@ -6209,6 +6248,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &811282639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811282636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b53b1c76b3cc346b92d7e7eb1acb1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  riddleAnswer: 0
 --- !u!1 &827333131 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5247142943689046982, guid: de2d90d16846d2c4cbb0f3a9f70d4d92,
@@ -7473,6 +7525,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1229614543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229614538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b53b1c76b3cc346b92d7e7eb1acb1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  riddleAnswer: 0
 --- !u!1 &1267163690 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7569394396480215597, guid: 310a6731c4335fc449fd183053908b67,
