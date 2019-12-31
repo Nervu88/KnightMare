@@ -6,7 +6,7 @@ public class ItemSpawner : MonoBehaviour
 {
     public static GameObject[] gameItems;
     public int numToSpawn;
-    public static int numSpawned = 0;
+    public int numSpawned = 0;
     public Transform[] collectableSpawnPoints = new Transform[5];
     private int index;
 
@@ -27,6 +27,7 @@ public class ItemSpawner : MonoBehaviour
     void Start()
     {
         gameItems = Resources.LoadAll<GameObject>("SpawnItems");
+        index = 0;
     }
 
     void SpawnRandomObject()
